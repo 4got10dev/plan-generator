@@ -1,0 +1,27 @@
+version: 2
+jobs:
+  build:
+
+    working_directory: ~/plan-generator
+
+    docker:
+      - image: circleci/openjdk:8u171-jdk
+    steps:
+      - checkout
+      - restore_cache:
+          key: plan-generator-{{ checksum "pom.xml" }}
+
+      - run: mvn -U dependency:go-offline compile -Pall
+
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: plan-generator-{{ checksum "pom.xml" }}
+
+      - run: mvn package -Pall
+
+      - store_test_results:
+          path: core/target/surefire-reports
+
+      - store_artifacts:
+          path: artifacts

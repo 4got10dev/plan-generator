@@ -1,35 +1,35 @@
 package s4got10dev.plangenerator.calc;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 import s4got10dev.plangenerator.domain.LoanDetails;
 import s4got10dev.plangenerator.domain.RepaymentRecord;
 
 import java.math.BigDecimal;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 import static s4got10dev.plangenerator.calc.TestUtils.assertNumberEquals;
 import static s4got10dev.plangenerator.calc.TestUtils.loanDetails;
 
-class PlanRecordCalculatorTest {
+public class PlanRecordCalculatorTest {
 
     private PlanCalculator planCalculator;
 
-    @BeforeEach
-    void setUp() {
+    @Before
+    public void setUp() {
         if (planCalculator == null)
             planCalculator = new PlanCalculator();
     }
 
     @Test
-    void testInitialRecordCalculated() {
+    public void testInitialRecordCalculated() {
         LoanDetails loanDetails = loanDetails(5000, 5, 24);
         RepaymentRecord record = planCalculator.calculateRepaymentRecord(loanDetails, planCalculator.calculateAnnuity(loanDetails), null);
         checkRepaymentRecord(record, 219.36, 198.52, 20.83);
     }
 
     @Test
-    void testSecondRecordCalculated() {
+    public void testSecondRecordCalculated() {
         LoanDetails loanDetails = loanDetails(3000, 3, 2);
         BigDecimal annuity = planCalculator.calculateAnnuity(loanDetails);
         RepaymentRecord initial = planCalculator.calculateRepaymentRecord(loanDetails, annuity, null);

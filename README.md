@@ -1,4 +1,4 @@
-# Plan Generator
+# Plan Generator [![CircleCI](https://circleci.com/gh/4got10dev/plan-generator/tree/master.svg?style=svg)](https://circleci.com/gh/4got10dev/plan-generator/tree/master)
 Application provide possibility to generate pre-calculated repayment plans throughout the lifetime of a loan.
 
 ## How to use
@@ -9,8 +9,8 @@ There are 3 maven profiles that creating one of 2 applications that work followi
 - **All** "all" this profile will build both console and web-service application
 - **Console** "console" (default one) this application 
 - **Web Service** "ws" maintain new request and result for each addPart call as a new record
- 
-###Execution
+  
+### Execution
 Execute maven build (It may take a while in the first run):
 ```sh
 # console application
@@ -27,9 +27,9 @@ $ ./mvnw install -Pall
 
 After the message of BUILD SUCCESS, the application artifacts will be available under **artifacts** folder (console-x.x.jar or web-service-x.x.jar):
 
-###Usage example
+### Usage example
 
-####Console
+#### Console
 ```sh
 $ java -jar artifacts/console-1.0.jar 
 Welcome to Plan Generator!
@@ -52,7 +52,7 @@ $ 01.01.2020
   2021-12-01          219.36          218.45            0.91          218.45            0.00
 -------------------------------------------------------------------------------------------------
 ```
-####Web service
+#### Web service
 ```sh
 $ java -jar artifacts/web-service-1.0.jar
 ```

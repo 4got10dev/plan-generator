@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 import static java.math.BigDecimal.valueOf;
 import static java.math.RoundingMode.HALF_UP;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 class TestUtils {
 

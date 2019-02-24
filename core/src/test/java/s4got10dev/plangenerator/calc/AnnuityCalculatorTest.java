@@ -1,14 +1,15 @@
 package s4got10dev.plangenerator.calc;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import static java.math.RoundingMode.HALF_UP;
-import static s4got10dev.plangenerator.calc.TestUtils.*;
+import static s4got10dev.plangenerator.calc.TestUtils.assertNumberEquals;
+import static s4got10dev.plangenerator.calc.TestUtils.loanDetails;
 
-class AnnuityCalculatorTest {
+public class AnnuityCalculatorTest {
 
     @Test
-    void testAnnuityAmountCalculated() {
+    public void testAnnuityAmountCalculated() {
         validateCalculation(219.36, 5000L, 5, 24);
         validateCalculation(308.77, 10000L, 7, 36);
         validateCalculation(837.85, 10000L, 1, 12);

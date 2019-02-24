@@ -1,19 +1,19 @@
 package s4got10dev.plangenerator.calc;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import s4got10dev.plangenerator.domain.RepaymentRecord;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static java.math.BigDecimal.ZERO;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 import static s4got10dev.plangenerator.calc.TestUtils.loanDetails;
 
-class PlanCalculatorTest {
+public class PlanCalculatorTest {
 
     @Test
-    void testPlanCalculated() {
+    public void testPlanCalculated() {
         List<RepaymentRecord> records = new ArrayList<>(new PlanCalculator().calculate(loanDetails(3000, 3, 4)).getRepayments());
 
         assertEquals(4, records.size());
